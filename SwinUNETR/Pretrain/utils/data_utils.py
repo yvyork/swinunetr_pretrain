@@ -11,17 +11,13 @@
 
 from monai.data import CacheDataset, DataLoader, Dataset, DistributedSampler, SmartCacheDataset, load_decathlon_datalist
 from monai.transforms import (
-    AddChanneld,
-    AsChannelFirstd,
+    EnsureChannelFirstd,
     Compose,
     CropForegroundd,
     LoadImaged,
-    NormalizeIntensityd,
     Orientationd,
-    RandCropByPosNegLabeld,
     RandSpatialCropSamplesd,
     ScaleIntensityRanged,
-    Spacingd,
     SpatialPadd,
     ToTensord,
 )
@@ -72,7 +68,7 @@ def get_loader(args):
     train_transforms = Compose(
         [
             LoadImaged(keys=["image"]),
-            AddChanneld(keys=["image"]),
+            EnsureChannelFirstd(keys=["image"]),
             Orientationd(keys=["image"], axcodes="RAS"),
             ScaleIntensityRanged(
                 keys=["image"], a_min=args.a_min, a_max=args.a_max, b_min=args.b_min, b_max=args.b_max, clip=True
@@ -92,7 +88,7 @@ def get_loader(args):
     val_transforms = Compose(
         [
             LoadImaged(keys=["image"]),
-            AddChanneld(keys=["image"]),
+            EnsureChannelFirstd(keys=["image"]),
             Orientationd(keys=["image"], axcodes="RAS"),
             ScaleIntensityRanged(
                 keys=["image"], a_min=args.a_min, a_max=args.a_max, b_min=args.b_min, b_max=args.b_max, clip=True
