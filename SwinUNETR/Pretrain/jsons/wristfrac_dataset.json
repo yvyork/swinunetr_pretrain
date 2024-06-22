@@ -1,0 +1,32 @@
+{
+    "name": "WristFrac",
+    "description": "Wrist fracture dataset",
+    "tensorImageSize": "3D",
+    "reference": "Kantonsspital Baselland",
+    "modality": {
+        "0": "CT"
+    },
+    "fileEnding": ".nii.gz",
+    "numTraining": 356,
+    "numTesting": 0,
+    "training": [
+        {
+            "image": "imagesTr/patient_112_ct.nii.gz",
+            "label": null
+        },
+        {
+            "image": "imagesTr/patient_320_ct.nii.gz",
+            "label": null
+        }
+    ],
+    "validation": [
+        {
+            "image": "imagesTs/patient_146_ct.nii.gz",
+            "label": "labelsTs/patient_146_label.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_147_ct.nii.gz",
+            "label": "labelsTs/patient_147_label.nii.gz"
+        }
+    ]
+}

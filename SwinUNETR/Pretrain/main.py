@@ -11,6 +11,7 @@
 
 import argparse
 import os
+import wandb
 from time import time
 
 import numpy as np
@@ -52,6 +53,7 @@ def main():
                 rots = torch.cat([rot1, rot2], dim=0)
                 imgs_recon = torch.cat([rec_x1, rec_x2], dim=0)
                 imgs = torch.cat([x1, x2], dim=0)
+                # loss float, tuple(1,2,3)
                 loss, losses_tasks = loss_function(rot_p, rots, contrastive1_p, contrastive2_p, imgs_recon, imgs)
             loss_train.append(loss.item())
             loss_train_recon.append(losses_tasks[2].item())
@@ -275,6 +277,13 @@ def main():
         torch.save(model.state_dict(), logdir + "final_model.pth")
     save_ckp(checkpoint, logdir + "/model_final_epoch.pt")
 
+def _setup_wandb(args):
+    api_key = os.getenv("WANDB_API_KEY")
+    if not api_key:
+        raise ValueError("WANDB_API_KEY environment variable not set.")
+
+    wandb.login(key=api_key)
+    wandb.init(entity="wrist-fractures", project="wrist-fractures-pretrain", config=vars(args))
 
 if __name__ == "__main__":
     main()
