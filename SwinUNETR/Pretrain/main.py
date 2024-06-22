@@ -29,13 +29,16 @@ from utils.ops import aug_rand, rot_rand
 
 
 def main():
-    def save_ckp(state, checkpoint_dir):
-        torch.save(state, checkpoint_dir)
+    def save_ckp(state, checkpoint_file):
+        torch.save(state, checkpoint_file)
+        wandb.save(checkpoint_file)
 
     def train(args, global_step, train_loader, val_best, scaler):
         model.train()
         loss_train = []
         loss_train_recon = []
+        loss_train_rot = []
+        loss_train_contrastive = []
 
         for step, batch in enumerate(train_loader):
             t1 = time()
@@ -53,10 +56,13 @@ def main():
                 rots = torch.cat([rot1, rot2], dim=0)
                 imgs_recon = torch.cat([rec_x1, rec_x2], dim=0)
                 imgs = torch.cat([x1, x2], dim=0)
-                # loss float, tuple(1,2,3)
                 loss, losses_tasks = loss_function(rot_p, rots, contrastive1_p, contrastive2_p, imgs_recon, imgs)
+
             loss_train.append(loss.item())
             loss_train_recon.append(losses_tasks[2].item())
+            loss_train_rot.append(losses_tasks[0].item())
+            loss_train_contrastive.append(losses_tasks[1].item())
+
             if args.amp:
                 scaler.scale(loss).backward()
                 scaler.step(optimizer)
@@ -74,7 +80,9 @@ def main():
                 if dist.get_rank() == 0:
                     print("Step:{}/{}, Loss:{:.4f}, Time:{:.4f}".format(global_step, args.num_steps, loss, time() - t1))
             else:
-                print("Step:{}/{}, Loss:{:.4f}, Time:{:.4f}".format(global_step, args.num_steps, loss, time() - t1))
+                print("Step:{}/{}, Loss:{:.4f}, Rotation Loss:{:.4f}, Contrastive Loss:{:.4f}, Recon Loss:{:.4f}".format(
+                    global_step, args.num_steps, loss, losses_tasks[0], losses_tasks[1], losses_tasks[2]
+                ))
 
             global_step += 1
             if args.distributed:
@@ -82,8 +90,10 @@ def main():
             else:
                 val_cond = global_step % args.eval_num == 0
 
+            val_wandb_logs = {}
             if val_cond:
-                val_loss, val_loss_recon, img_list = validation(args, test_loader)
+                val_loss, val_loss_recon, img_list, wandb_logs = validation(args, test_loader)
+
                 writer.add_scalar("Validation/loss_recon", scalar_value=val_loss_recon, global_step=global_step)
                 writer.add_scalar("train/loss_total", scalar_value=np.mean(loss_train), global_step=global_step)
                 writer.add_scalar("train/loss_recon", scalar_value=np.mean(loss_train_recon), global_step=global_step)
@@ -91,6 +101,13 @@ def main():
                 writer.add_image("Validation/x1_gt", img_list[0], global_step, dataformats="HW")
                 writer.add_image("Validation/x1_aug", img_list[1], global_step, dataformats="HW")
                 writer.add_image("Validation/x1_recon", img_list[2], global_step, dataformats="HW")
+
+                val_wandb_logs = {
+                    **wandb_logs,
+                    "val/x1_gt": wandb.Image(img_list[0]),
+                    "val/x1_aug": wandb.Image(img_list[1]),
+                    "val/x1_recon": wandb.Image(img_list[2])
+                }
 
                 if val_loss_recon < val_best:
                     val_best = val_loss_recon
@@ -111,12 +128,23 @@ def main():
                             val_best, val_loss_recon
                         )
                     )
+
+                wandb.log({
+                    "train/loss_total": np.mean(loss_train),
+                    "train/loss_recon": np.mean(loss_train_recon),
+                    "train/loss_rot": np.mean(loss_train_rot),
+                    "train/loss_contrastive": np.mean(loss_train_contrastive),
+                    **val_wandb_logs
+                }, step=global_step)
+
         return global_step, loss, val_best
 
     def validation(args, test_loader):
         model.eval()
         loss_val = []
         loss_val_recon = []
+        loss_val_rot = []
+        loss_val_contrastive = []
         with torch.no_grad():
             for step, batch in enumerate(test_loader):
                 val_inputs = batch["image"].cuda()
@@ -135,6 +163,8 @@ def main():
                 loss_recon = losses_tasks[2]
                 loss_val.append(loss.item())
                 loss_val_recon.append(loss_recon.item())
+                loss_val_rot.append(losses_tasks[0].item())
+                loss_val_contrastive.append(losses_tasks[1].item())
                 x_gt = x1.detach().cpu().numpy()
                 x_gt = (x_gt - np.min(x_gt)) / (np.max(x_gt) - np.min(x_gt))
                 xgt = x_gt[0][0][:, :, 48] * 255.0
@@ -150,7 +180,14 @@ def main():
                 img_list = [xgt, x_aug, recon]
                 print("Validation step:{}, Loss:{:.4f}, Loss Reconstruction:{:.4f}".format(step, loss, loss_recon))
 
-        return np.mean(loss_val), np.mean(loss_val_recon), img_list
+        wandb_logs = {
+            "val/loss_total": np.mean(loss_val),
+            "val/loss_recon": np.mean(loss_val_recon),
+            "val/loss_rot": np.mean(loss_val_rot),
+            "val/loss_contrastive": np.mean(loss_val_contrastive)
+        }
+
+        return np.mean(loss_val), np.mean(loss_val_recon), img_list, wandb_logs
 
     parser = argparse.ArgumentParser(description="PyTorch Training")
     parser.add_argument("--logdir", default="test", type=str, help="directory to save the tensorboard logs")
@@ -190,10 +227,21 @@ def main():
     parser.add_argument("--dist-url", default="env://", help="url used to set up distributed training")
     parser.add_argument("--smartcache_dataset", action="store_true", help="use monai smartcache Dataset")
     parser.add_argument("--cache_dataset", action="store_true", help="use monai cache Dataset")
+    parser.add_argument("--disable_wandb", action="store_true", help="use wandb for logging", default=False)
+    parser.add_argument("--resume_wandb_run", type=str, help="resume wandb run", default=None)
+    parser.add_argument("--wandb_name", type=str, help="wandb name", default=None)
+
+    if not args.disable_wandb:
+        _setup_wandb(args)
+
+    # Fot testing - remove me
+    args.num_steps = 15
+    args.eval_num = 5
 
     args = parser.parse_args()
     logdir = "./runs/" + args.logdir
     args.amp = not args.noamp
+    print("Using AMP: ", args.amp)
     torch.backends.cudnn.benchmark = True
     torch.autograd.set_detect_anomaly(True)
     args.distributed = False
@@ -237,7 +285,10 @@ def main():
 
     if args.resume:
         model_pth = args.resume
-        model_dict = torch.load(model_pth)
+        if args.resume_wandb_run:
+            model_dict = torch.load(wandb.restore(model_pth).name)
+        else:
+            model_dict = torch.load(model_pth)
         model.load_state_dict(model_dict["state_dict"])
         model.epoch = model_dict["epoch"]
         model.optimizer = model_dict["optimizer"]
@@ -283,7 +334,22 @@ def _setup_wandb(args):
         raise ValueError("WANDB_API_KEY environment variable not set.")
 
     wandb.login(key=api_key)
-    wandb.init(entity="wrist-fractures", project="wrist-fractures-pretrain", config=vars(args))
+
+    additional_args = {}
+    if args.wandb_name:
+        additional_args = {
+            **additional_args,
+            'name': args.wandb_name,
+        }
+
+    if args.resume_wandb_run:
+        additional_args = {
+            **additional_args,
+            'resume': 'must',
+            'id': args.resume_wandb_run,
+        }
+
+    wandb.init(entity="wrist-fractures", project="wrist-fractures-pretrain", config=vars(args), **additional_args)
 
 if __name__ == "__main__":
     main()
