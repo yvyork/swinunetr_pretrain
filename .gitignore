@@ -136,3 +136,5 @@ tmp_*_dir/
 
 # Dataset
 dataset/
+runs/
+wandb/
