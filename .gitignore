@@ -138,3 +138,5 @@ tmp_*_dir/
 dataset/
 runs/
 wandb/
+
+.gitignore

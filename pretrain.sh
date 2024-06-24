@@ -7,5 +7,8 @@
 #SBATCH --err=err.log
 conda activate .venv
 python SwinUNETR/Pretrain/main.py \
---num_steps 
---wandb_name clusterTest5 \
+--epochs 100 \
+--num_steps 1000 \
+--eval_num 50 \
+--warmup_steps 100 \
+--wandb_name clusterTest5
