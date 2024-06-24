@@ -24,10 +24,10 @@ from monai.transforms import (
 
 
 def get_loader(args):
-    splits1 = "/dataset_wristfrac.json"
+    splits1 = "/dataset.json"
     list_dir = "./jsons"
     jsonlist1 = list_dir + splits1
-    datadir1 = "./dataset/wristfrac_dataset"
+    datadir1 = "./dataset/msd_dataset"
     num_workers = 4
     datalist1 = load_decathlon_datalist(jsonlist1, False, "training", base_dir=datadir1)
     print("Dataset wristfrac: number of data: {}".format(len(datalist1)))
@@ -44,7 +44,15 @@ def get_loader(args):
     train_transforms = Compose(
         [
             LoadImaged(keys=["image"]),
-            
+            EnsureChannelFirstd(keys=["image"]),
+            Orientationd(keys=["image"], axcodes="RAS"),
+            ScaleIntensityRanged(
+                keys=["image"], a_min=args.a_min, a_max=args.a_max, b_min=args.b_min, b_max=args.b_max, clip=True
+            ),
+            SpatialPadd(keys="image", spatial_size=[args.roi_x, args.roi_y, args.roi_z]),
+            CropForegroundd(keys=["image"], source_key="image", k_divisible=[args.roi_x, args.roi_y, args.roi_z]),
+            RandSpatialCropSamplesd(
+                keys=["image"],
                 roi_size=[args.roi_x, args.roi_y, args.roi_z],
                 num_samples=args.sw_batch_size,
                 random_center=True,

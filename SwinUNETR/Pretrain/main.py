@@ -29,6 +29,12 @@ from utils.ops import aug_rand, rot_rand
 
 
 def main():
+
+    if torch.cuda.is_available():
+        print("CUDA is available")
+    else:
+        print("Could not find GPU")
+
     def save_ckp(state, checkpoint_file):
         torch.save(state, checkpoint_file)
         wandb.save(checkpoint_file)
@@ -80,9 +86,8 @@ def main():
                 if dist.get_rank() == 0:
                     print("Step:{}/{}, Loss:{:.4f}, Time:{:.4f}".format(global_step, args.num_steps, loss, time() - t1))
             else:
-                print("Step:{}/{}, Loss:{:.4f}, Rotation Loss:{:.4f}, Contrastive Loss:{:.4f}, Recon Loss:{:.4f}".format(
-                    global_step, args.num_steps, loss, losses_tasks[0], losses_tasks[1], losses_tasks[2]
-                ))
+                print("Step:{}/{}, Loss:{:.4f}, Rotation Loss:{:.4f}, Contrastive Loss:{:.4f}, Recon Loss:{:.4f}, Time:{:.2f}".format(
+                    global_step, args.num_steps, loss, losses_tasks[0], losses_tasks[1], losses_tasks[2], time() - t1))
 
             global_step += 1
             if args.distributed:
@@ -148,7 +153,6 @@ def main():
         with torch.no_grad():
             for step, batch in enumerate(test_loader):
                 val_inputs = batch["image"].cuda()
-                print(f"Val Input Shape: {val_inputs.shape}")
                 x1, rot1 = rot_rand(args, val_inputs)
                 x2, rot2 = rot_rand(args, val_inputs)
                 x1_augment = aug_rand(args, x1)
@@ -211,7 +215,7 @@ def main():
     parser.add_argument("--roi_x", default=96, type=int, help="roi size in x direction")
     parser.add_argument("--roi_y", default=96, type=int, help="roi size in y direction")
     parser.add_argument("--roi_z", default=96, type=int, help="roi size in z direction")
-    parser.add_argument("--batch_size", default=2, type=int, help="number of batch size")
+    parser.add_argument("--batch_size", default=1, type=int, help="number of batch size")
     parser.add_argument("--sw_batch_size", default=2, type=int, help="number of sliding window batch size")
     parser.add_argument("--lr", default=4e-4, type=float, help="learning rate")
     parser.add_argument("--decay", default=0.1, type=float, help="decay rate")
@@ -233,13 +237,10 @@ def main():
     parser.add_argument("--wandb_name", type=str, help="wandb name", default=None)
 
     args = parser.parse_args()
-    
-    if not args.disable_wandb:
-        _setup_wandb(args)
 
     # Fot testing - remove me
     args.num_steps = 15
-    args.eval_num = 2
+    args.eval_num = 5
 
     logdir = "./runs/" + args.logdir
     args.amp = not args.noamp
@@ -273,7 +274,10 @@ def main():
     else:
         writer = None
 
-    model = SSLHead(args)
+    if not args.disable_wandb:
+        _setup_wandb(args)
+
+    model = SSLHead(args, upsample="large_kernel_deconv")
     model.cuda()
 
     if args.opt == "adam":

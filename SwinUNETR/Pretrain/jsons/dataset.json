@@ -1,0 +1,1369 @@
+{
+    "name": "WristFrac",
+    "description": "Wrist fracture dataset",
+    "tensorImageSize": "3D",
+    "reference": "Kantonsspital Baselland",
+    "modality": {
+        "0": "CT"
+    },
+    "fileEnding": ".nii.gz",
+    "numTraining": 451,
+    "numTesting": 0,
+    "training": [
+        {
+            "image": "imagesTr/patient_148_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_149_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_89_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_80_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_87_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_7_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_20_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_29_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_72_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_75_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g26_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_43_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_237_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_461_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_208_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_88_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g10_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_466_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_230_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g17_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_459_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_290_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_432_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_264_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_28_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_263_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_435_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_297_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_403_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_299_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_19_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_26_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_252_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_404_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_284_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_426_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_270_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_419_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_421_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_283_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_248_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_417_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_241_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_35_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_428_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_246_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_32_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_410_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_279_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_66_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_212_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_444_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_443_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_61_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_95_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_68_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_223_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_57_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_475_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_481_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_486_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_472_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_224_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_50_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_247_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_33_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_411_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_278_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_416_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_240_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_429_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_282_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_276_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_420_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_249_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_427_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_271_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_285_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_418_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_473_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_225_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_487_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_69_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_480_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_222_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_56_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_474_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_94_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_442_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_60_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_214_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_213_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_445_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_93_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_395_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_361_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_153_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_198_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g1_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_366_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_392_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_359_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g6_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_162_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_350_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_196_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_191_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_357_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g8_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_368_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_303_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_109_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_304_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_332_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_107_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_335_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_164_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_356_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g9_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_369_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_197_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_351_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_163_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_393_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_367_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_155_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_358_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g7_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_152_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_360_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_394_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_199_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_139_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_334_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_106_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_333_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_302_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_379_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_180_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_346_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_174_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_173_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_341_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_187_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_348_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_377_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_383_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_189_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_384_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_370_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_116_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_324_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_323_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_111_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_127_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_120_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_312_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_188_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_371_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_385_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_349_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_382_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_376_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_144_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_340_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_172_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_378_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_347_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_181_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_313_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_314_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_119_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_110_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_322_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_325_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_117_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_128_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_268_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_401_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_23_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_257_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_439_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_3_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_24_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_250_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_406_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_259_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_430_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_266_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_292_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_408_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_295_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_261_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_15_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_437_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_41_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_235_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_463_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g12_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_464_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_46_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_232_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_79_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g15_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_204_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_70_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_452_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_84_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g23_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_83_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_455_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_203_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g24_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_48_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_409_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_260_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_436_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_293_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_431_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_267_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_438_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_25_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_407_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_269_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_400_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_5_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_256_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_454_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_202_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_76_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_82_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_49_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g25_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_85_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_205_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_71_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_453_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g22_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_465_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_47_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_233_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g14_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_78_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_234_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_462_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g13_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_229_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_440_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_216_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_478_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_91_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_65_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_211_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_447_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_218_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_485_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_471_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_227_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_53_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_449_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_220_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_54_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_476_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_482_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_274_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_422_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_280_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_287_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_425_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_273_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_38_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_245_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_31_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_413_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_414_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_242_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_289_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_448_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_483_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_221_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_55_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_477_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_219_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_470_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_226_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_484_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_479_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_210_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_446_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_90_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_228_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_441_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_63_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_217_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_415_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_243_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_37_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_288_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_30_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_412_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_424_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_272_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_286_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_39_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_281_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_275_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_423_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_338_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_135_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_307_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_300_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_309_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_336_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_104_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_331_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_365_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_157_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_391_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_168_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g5_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_396_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_150_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_362_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g2_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_192_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_166_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_354_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_159_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_353_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_161_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_195_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_398_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_330_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_102_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_308_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_339_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_134_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_194_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_160_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_352_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_399_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_355_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_167_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_193_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_158_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_363_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_151_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_397_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g3_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_390_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_156_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_364_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g4_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_169_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_458_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g16_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_42_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_236_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_460_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g11_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_209_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g18_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_456_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_200_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_74_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g27_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_469_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_207_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_73_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_451_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_238_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g20_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_298_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_27_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_253_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_405_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_402_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_254_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_296_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_262_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_434_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_433_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_265_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_11_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_291_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_86_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_206_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g21_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_239_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_457_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_201_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_g19_ct.nii.gz"
+        },
+        {
+            "image": "imagesTr/patient_468_ct.nii.gz"
+        }
+    ],
+    "test": [
+        {
+            "image": "imagesTs/patient_112_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_320_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_115_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_318_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_311_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_316_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_329_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_389_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_342_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_170_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_184_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_183_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_177_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_345_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_387_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_373_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_179_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_374_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_146_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_380_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_317_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_122_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_310_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_326_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_319_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_321_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_178_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_147_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_375_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_372_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_386_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_344_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_176_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_182_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_388_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_185_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_171_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_343_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_467_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_45_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_231_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_18_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_16_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_81_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_44_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_59_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_92_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_34_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_51_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_58_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_154_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_143_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_77_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_22_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_40_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_62_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_96_ct.nii.gz"
+        },
+        {
+            "image": "imagesTs/patient_64_ct.nii.gz"
+        }
+    ]
+}

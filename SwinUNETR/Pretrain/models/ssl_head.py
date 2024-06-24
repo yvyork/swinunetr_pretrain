@@ -139,14 +139,66 @@ class SSLHead(nn.Module):
                 weights["state_dict"]["module.layers4.0.downsample.norm.bias"]
             )
 
-            self.rotation_head.weight.copy_(weights["state_dict"]["module.rotation_head.weight"])
-            self.rotation_head.bias.copy_(weights["state_dict"]["module.rotation_head.bias"])
+            
+        def load_all_from(self, weights):
+            with torch.no_grad():
+                self.swinViT.patch_embed.proj.weight.copy_(weights["state_dict"]["module.patch_embed.proj.weight"])
+                self.swinViT.patch_embed.proj.bias.copy_(weights["state_dict"]["module.patch_embed.proj.bias"])
+                for bname, block in self.swinViT.layers1[0].blocks.named_children():
+                    block.load_from(weights, n_block=bname, layer="layers1")
+                self.swinViT.layers1[0].downsample.reduction.weight.copy_(
+                    weights["state_dict"]["module.layers1.0.downsample.reduction.weight"]
+                )
+                self.swinViT.layers1[0].downsample.norm.weight.copy_(
+                    weights["state_dict"]["module.layers1.0.downsample.norm.weight"]
+                )
+                self.swinViT.layers1[0].downsample.norm.bias.copy_(
+                    weights["state_dict"]["module.layers1.0.downsample.norm.bias"]
+                )
+                for bname, block in self.swinViT.layers2[0].blocks.named_children():
+                    block.load_from(weights, n_block=bname, layer="layers2")
+                self.swinViT.layers2[0].downsample.reduction.weight.copy_(
+                    weights["state_dict"]["module.layers2.0.downsample.reduction.weight"]
+                )
+                self.swinViT.layers2[0].downsample.norm.weight.copy_(
+                    weights["state_dict"]["module.layers2.0.downsample.norm.weight"]
+                )
+                self.swinViT.layers2[0].downsample.norm.bias.copy_(
+                    weights["state_dict"]["module.layers2.0.downsample.norm.bias"]
+                )
+                for bname, block in self.swinViT.layers3[0].blocks.named_children():
+                    block.load_from(weights, n_block=bname, layer="layers3")
+                self.swinViT.layers3[0].downsample.reduction.weight.copy_(
+                    weights["state_dict"]["module.layers3.0.downsample.reduction.weight"]
+                )
+                self.swinViT.layers3[0].downsample.norm.weight.copy_(
+                    weights["state_dict"]["module.layers3.0.downsample.norm.weight"]
+                )
+                self.swinViT.layers3[0].downsample.norm.bias.copy_(
+                    weights["state_dict"]["module.layers3.0.downsample.norm.bias"]
+                )
+                for bname, block in self.swinViT.layers4[0].blocks.named_children():
+                    block.load_from(weights, n_block=bname, layer="layers4")
+                self.swinViT.layers4[0].downsample.reduction.weight.copy_(
+                    weights["state_dict"]["module.layers4.0.downsample.reduction.weight"]
+                )
+                self.swinViT.layers4[0].downsample.norm.weight.copy_(
+                    weights["state_dict"]["module.layers4.0.downsample.norm.weight"]
+                )
+                self.swinViT.layers4[0].downsample.norm.bias.copy_(
+                    weights["state_dict"]["module.layers4.0.downsample.norm.bias"]
+                )
 
-            self.contrastive_head.weight.copy_(weights["state_dict"]["module.contrastive_head.weight"])
-            self.contrastive_head.bias.copy_(weights["state_dict"]["module.contrastive_head.bias"])
+                self.rotation_head.weight.copy_(weights["state_dict"]["module.rotation_head.weight"])
+                self.rotation_head.bias.copy_(weights["state_dict"]["module.rotation_head.bias"])
 
-            if self.upsample == "large_kernel_deconv":
-                self.conv.weight.copy_(weights["state_dict"]["module.convTrans3d.weight"])
-                self.conv.bias.copy_(weights["state_dict"]["module.convTrans3d.bias"])
-            else:
-                print(f"Upsample method {self.upsample} not supported for loading weights. Only 'large_kernel_deconv' supported.")
+                self.contrastive_head.weight.copy_(weights["state_dict"]["module.contrastive_head.weight"])
+                self.contrastive_head.bias.copy_(weights["state_dict"]["module.contrastive_head.bias"])
+
+                if self.upsample == "large_kernel_deconv":
+                    self.conv.weight.copy_(weights["state_dict"]["module.convTrans3d.weight"])
+                    self.conv.bias.copy_(weights["state_dict"]["module.convTrans3d.bias"])
+                else:
+                    print(f"Upsample method {self.upsample} not supported for loading weights. Only 'large_kernel_deconv' supported.")
+        
+        
